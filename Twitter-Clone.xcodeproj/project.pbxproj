@@ -12,6 +12,7 @@
 		AC119C402264065100F8E06D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC119C3E2264065100F8E06D /* Main.storyboard */; };
 		AC119C422264065400F8E06D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC119C412264065400F8E06D /* Assets.xcassets */; };
 		AC119C452264065400F8E06D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC119C432264065400F8E06D /* LaunchScreen.storyboard */; };
+		ACE9955D22641B3000AF98C7 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = ACE9955C22641B3000AF98C7 /* logo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		AC119C412264065400F8E06D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC119C442264065400F8E06D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC119C462264065400F8E06D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ACE9955C22641B3000AF98C7 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = images/logo.png; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 		AC119C392264065100F8E06D /* Twitter-Clone */ = {
 			isa = PBXGroup;
 			children = (
+				ACE9955C22641B3000AF98C7 /* logo.png */,
 				AC119C3A2264065100F8E06D /* AppDelegate.swift */,
 				AC119C3C2264065100F8E06D /* ViewController.swift */,
 				AC119C3E2264065100F8E06D /* Main.storyboard */,
@@ -122,6 +125,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACE9955D22641B3000AF98C7 /* logo.png in Resources */,
 				AC119C452264065400F8E06D /* LaunchScreen.storyboard in Resources */,
 				AC119C422264065400F8E06D /* Assets.xcassets in Resources */,
 				AC119C402264065100F8E06D /* Main.storyboard in Resources */,
