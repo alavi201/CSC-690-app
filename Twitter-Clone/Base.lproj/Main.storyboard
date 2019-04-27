@@ -52,6 +52,9 @@
                                 <color key="backgroundColor" red="0.2698999688" green="0.34005620279999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Sign In"/>
+                                <connections>
+                                    <action selector="onSignInClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VNA-vd-5eB"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="UfR-Sf-5Ep">
                                 <rect key="frame" x="140" y="84" width="104" height="103"/>
@@ -71,6 +74,7 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Sign Up"/>
                                 <connections>
+                                    <action selector="onSignUpClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BTa-S3-DiW"/>
                                     <segue destination="wid-BX-c6a" kind="presentation" identifier="signUpView" id="drd-b3-5KF"/>
                                 </connections>
                             </button>
@@ -78,6 +82,10 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="password" destination="iYb-bg-GPI" id="odk-o2-6cL"/>
+                        <outlet property="userName" destination="cJ1-Dl-NAf" id="KEq-3A-JPS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -190,6 +198,20 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y1d-zy-PQs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="590" y="132"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="dL2-kZ-h6U">
+            <objects>
+                <viewController id="h3t-vT-qIo" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eDe-KZ-nyU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="4Ta-bN-n7z"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7jk-5Z-mY4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
     <resources>
