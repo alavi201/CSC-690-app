@@ -1,32 +1,42 @@
 //
-//  ViewController.swift
+//  SignUpViewController.swift
 //  Twitter-Clone
 //
-//  Created by Vipul Karanjkar on 4/14/19.
+//  Created by Vipul Karanjkar on 4/27/19.
 //  Copyright © 2019 SFSU. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
-    
+class SignUpViewController: UIViewController {
+
     @IBOutlet weak var userName: UITextField!
     @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var dob: UIDatePicker!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        // Do any additional setup after loading the view.
     }
     
-    @IBAction func onSignInClicked(_ sender: Any) {
-        
+
+    @IBAction func onSignUpClicked(_ sender: Any) {
         let username: String = userName.text!
         let pass: String = password.text!
-    
-        let Url = String(format: "http://127.0.0.1:8081/login")
+        
+        let Url = String(format: "http://127.0.0.1:8081/register")
         guard let serviceUrl = URL(string: Url) else { return }
-        let parameterDictionary = ["username" :username, "password" : pass]
+
+        let dateFormatter = DateFormatter()
+        // Now we specify the display format, e.g. "27-08-2015
+        dateFormatter.dateFormat = "YYYY-MM-dd"
+        // Now we get the date from the UIDatePicker and convert it to a string
+        let dateOfBirth = dateFormatter.string(from: dob.date)
+
+        print("Dob: " + dateOfBirth)
+        
+        let parameterDictionary = ["username" :username, "password" : pass, "dob":dateOfBirth]
         var request = URLRequest(url: serviceUrl)
         request.httpMethod = "POST"
         request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
@@ -35,11 +45,8 @@ class ViewController: UIViewController {
         }
         request.httpBody = httpBody
         
-        let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
-        
-        let task = session.dataTask(with: request) {
-        
-        (data, response, error) in
+        let session = URLSession.shared
+        session.dataTask(with: request) { (data, response, error) in
             if let response = response {
                 print(response)
             }
@@ -47,17 +54,15 @@ class ViewController: UIViewController {
                 do {
                     let json = try JSONSerialization.jsonObject(with: data, options: [])
                     print(json)
-                    self.performSegue(withIdentifier: "toHome", sender: nil)
                 } catch {
                     print(error)
                 }
             }
-            }
-        
-        task.resume()
+            }.resume()
     }
     
     
-    @IBAction func onSignUpClicked(_ sender: Any) {
+    @IBAction func onSignInClicked(_ sender: Any) {
     }
+    
 }
