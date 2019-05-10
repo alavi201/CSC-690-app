@@ -14,6 +14,7 @@
 		AC119C452264065400F8E06D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC119C432264065400F8E06D /* LaunchScreen.storyboard */; };
 		ACD6915222751A57005CEAF0 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD6915122751A57005CEAF0 /* SignUpViewController.swift */; };
 		ACD6915422753203005CEAF0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD6915322753202005CEAF0 /* HomeViewController.swift */; };
+		ACD7ED742285DE29004A7489 /* PostTweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD7ED732285DE29004A7489 /* PostTweetViewController.swift */; };
 		ACE9955D22641B3000AF98C7 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = ACE9955C22641B3000AF98C7 /* logo.png */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 		AC119C462264065400F8E06D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ACD6915122751A57005CEAF0 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		ACD6915322753202005CEAF0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		ACD7ED732285DE29004A7489 /* PostTweetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTweetViewController.swift; sourceTree = "<group>"; };
 		ACE9955C22641B3000AF98C7 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = images/logo.png; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -69,6 +71,7 @@
 				AC119C432264065400F8E06D /* LaunchScreen.storyboard */,
 				AC119C462264065400F8E06D /* Info.plist */,
 				ACD6915122751A57005CEAF0 /* SignUpViewController.swift */,
+				ACD7ED732285DE29004A7489 /* PostTweetViewController.swift */,
 			);
 			path = "Twitter-Clone";
 			sourceTree = "<group>";
@@ -145,6 +148,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACD7ED742285DE29004A7489 /* PostTweetViewController.swift in Sources */,
 				ACD6915222751A57005CEAF0 /* SignUpViewController.swift in Sources */,
 				AC119C3D2264065100F8E06D /* ViewController.swift in Sources */,
 				AC119C3B2264065100F8E06D /* AppDelegate.swift in Sources */,

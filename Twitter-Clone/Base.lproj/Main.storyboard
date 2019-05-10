@@ -90,7 +90,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-321" y="80"/>
+            <point key="canvasLocation" x="-73" y="105"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="Fg6-Q5-z1m">
@@ -210,7 +210,31 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y1d-zy-PQs" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="ZeG-Pk-Pap" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="590" y="132"/>
+            <point key="canvasLocation" x="748" y="105"/>
+        </scene>
+        <!--Post Tweet View Controller-->
+        <scene sceneID="3IK-m4-RjQ">
+            <objects>
+                <viewController id="VoH-pT-RrD" customClass="PostTweetViewController" customModule="Twitter_Clone" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IV9-uw-SnB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Post Tweet Screen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ssC-f3-Yjo">
+                                <rect key="frame" x="116" y="92" width="143" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Aov-Ds-uAL"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QE0-yD-90p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1652" y="113"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="dL2-kZ-h6U">
@@ -227,6 +251,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TtQ-if-YMI">
+                                <rect key="frame" x="146" y="244" width="79" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Post Tweet"/>
+                                <connections>
+                                    <segue destination="VoH-pT-RrD" kind="presentation" id="1XY-di-7cx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="4Ta-bN-n7z"/>
@@ -234,7 +266,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7jk-5Z-mY4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1265" y="46"/>
+            <point key="canvasLocation" x="-911.20000000000005" y="104.92610837438424"/>
         </scene>
     </scenes>
     <resources>
