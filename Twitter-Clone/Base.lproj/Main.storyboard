@@ -227,14 +227,36 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Enter your tweet" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lT4-Tw-HEW">
+                                <rect key="frame" x="16" y="210" width="343" height="184"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lez-WU-5m0">
+                                <rect key="frame" x="201" y="491" width="141" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.2698999688" green="0.34005620279999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Post Tweet"/>
+                                <connections>
+                                    <action selector="onPostTweetClicked:" destination="VoH-pT-RrD" eventType="touchUpInside" id="aRH-Cl-Jaw"/>
+                                    <action selector="onSignInClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3ct-Gx-9Yp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Aov-Ds-uAL"/>
                     </view>
+                    <connections>
+                        <outlet property="tweet" destination="lT4-Tw-HEW" id="0eW-Ti-ikh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QE0-yD-90p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1652" y="113"/>
+            <point key="canvasLocation" x="-1652" y="112.3152709359606"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="dL2-kZ-h6U">
@@ -273,6 +295,6 @@
         <image name="logo.png" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="LLg-Hh-g25"/>
+        <segue reference="5AJ-sY-qEq"/>
     </inferredMetricsTieBreakers>
 </document>
