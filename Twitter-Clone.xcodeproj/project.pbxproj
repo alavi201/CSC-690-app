@@ -12,6 +12,9 @@
 		AC119C402264065100F8E06D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC119C3E2264065100F8E06D /* Main.storyboard */; };
 		AC119C422264065400F8E06D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC119C412264065400F8E06D /* Assets.xcassets */; };
 		AC119C452264065400F8E06D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC119C432264065400F8E06D /* LaunchScreen.storyboard */; };
+		ACD6915222751A57005CEAF0 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD6915122751A57005CEAF0 /* SignUpViewController.swift */; };
+		ACD6915422753203005CEAF0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD6915322753202005CEAF0 /* HomeViewController.swift */; };
+		ACE9955D22641B3000AF98C7 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = ACE9955C22641B3000AF98C7 /* logo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		AC119C412264065400F8E06D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC119C442264065400F8E06D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC119C462264065400F8E06D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ACD6915122751A57005CEAF0 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		ACD6915322753202005CEAF0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		ACE9955C22641B3000AF98C7 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = images/logo.png; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,12 +60,15 @@
 		AC119C392264065100F8E06D /* Twitter-Clone */ = {
 			isa = PBXGroup;
 			children = (
+				ACE9955C22641B3000AF98C7 /* logo.png */,
+				ACD6915322753202005CEAF0 /* HomeViewController.swift */,
 				AC119C3A2264065100F8E06D /* AppDelegate.swift */,
 				AC119C3C2264065100F8E06D /* ViewController.swift */,
 				AC119C3E2264065100F8E06D /* Main.storyboard */,
 				AC119C412264065400F8E06D /* Assets.xcassets */,
 				AC119C432264065400F8E06D /* LaunchScreen.storyboard */,
 				AC119C462264065400F8E06D /* Info.plist */,
+				ACD6915122751A57005CEAF0 /* SignUpViewController.swift */,
 			);
 			path = "Twitter-Clone";
 			sourceTree = "<group>";
@@ -122,6 +131,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACE9955D22641B3000AF98C7 /* logo.png in Resources */,
 				AC119C452264065400F8E06D /* LaunchScreen.storyboard in Resources */,
 				AC119C422264065400F8E06D /* Assets.xcassets in Resources */,
 				AC119C402264065100F8E06D /* Main.storyboard in Resources */,
@@ -135,8 +145,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACD6915222751A57005CEAF0 /* SignUpViewController.swift in Sources */,
 				AC119C3D2264065100F8E06D /* ViewController.swift in Sources */,
 				AC119C3B2264065100F8E06D /* AppDelegate.swift in Sources */,
+				ACD6915422753203005CEAF0 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
