@@ -244,6 +244,7 @@
                                 <connections>
                                     <action selector="onPostTweetClicked:" destination="VoH-pT-RrD" eventType="touchUpInside" id="aRH-Cl-Jaw"/>
                                     <action selector="onSignInClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3ct-Gx-9Yp"/>
+                                    <segue destination="h3t-vT-qIo" kind="presentation" identifier="postToHome" id="Oeg-Jh-10e"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -256,7 +257,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QE0-yD-90p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1652" y="112.3152709359606"/>
+            <point key="canvasLocation" x="-2090" y="124"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="dL2-kZ-h6U">
@@ -295,6 +296,6 @@
         <image name="logo.png" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5AJ-sY-qEq"/>
+        <segue reference="Oeg-Jh-10e"/>
     </inferredMetricsTieBreakers>
 </document>
