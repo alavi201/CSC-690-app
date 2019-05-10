@@ -85,7 +85,7 @@
                     <connections>
                         <outlet property="password" destination="iYb-bg-GPI" id="odk-o2-6cL"/>
                         <outlet property="userName" destination="cJ1-Dl-NAf" id="KEq-3A-JPS"/>
-                        <segue destination="h3t-vT-qIo" kind="presentation" identifier="toHome" id="LLg-Hh-g25"/>
+                        <segue destination="h3t-vT-qIo" kind="presentation" identifier="signIntoHome" id="LLg-Hh-g25"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -204,7 +204,7 @@
                         <outlet property="dob" destination="UqN-P4-2fq" id="ba5-XV-JJk"/>
                         <outlet property="password" destination="5sf-at-bB8" id="Hae-k7-2MM"/>
                         <outlet property="userName" destination="gg6-Wy-AXn" id="kmc-1S-opC"/>
-                        <segue destination="h3t-vT-qIo" kind="custom" identifier="signUpToHome" id="5AJ-sY-qEq"/>
+                        <segue destination="h3t-vT-qIo" kind="presentation" identifier="signUpToHome" id="5AJ-sY-qEq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y1d-zy-PQs" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -241,6 +241,6 @@
         <image name="logo.png" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5AJ-sY-qEq"/>
+        <segue reference="LLg-Hh-g25"/>
     </inferredMetricsTieBreakers>
 </document>
