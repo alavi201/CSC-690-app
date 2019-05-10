@@ -44,7 +44,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GIN-gJ-EMf">
                                 <rect key="frame" x="256" y="476" width="103" height="39"/>
@@ -204,6 +204,7 @@
                         <outlet property="dob" destination="UqN-P4-2fq" id="ba5-XV-JJk"/>
                         <outlet property="password" destination="5sf-at-bB8" id="Hae-k7-2MM"/>
                         <outlet property="userName" destination="gg6-Wy-AXn" id="kmc-1S-opC"/>
+                        <segue destination="h3t-vT-qIo" kind="custom" identifier="signUpToHome" id="5AJ-sY-qEq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y1d-zy-PQs" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -218,6 +219,15 @@
                     <view key="view" contentMode="scaleToFill" id="eDe-KZ-nyU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Home Screen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nE9-mS-k91">
+                                <rect key="frame" x="135" y="77" width="104" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="4Ta-bN-n7z"/>
                     </view>
@@ -230,4 +240,7 @@
     <resources>
         <image name="logo.png" width="1024" height="1024"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="5AJ-sY-qEq"/>
+    </inferredMetricsTieBreakers>
 </document>
