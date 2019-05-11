@@ -41,8 +41,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         populatePosts(input: "") {
             (result: String) in
-            //print(self.posts)
-            print(self.posts[0].uuid)
             self.postList.delegate = self
             self.postList.dataSource = self
             self.postList.register(UITableViewCell.self, forCellReuseIdentifier: "customcell")
@@ -58,12 +56,14 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let Url = String(format: "http://127.0.0.1:8081/posts")
         guard let serviceUrl = URL(string: Url) else { return}
         var request = URLRequest(url: serviceUrl)
-        request.httpMethod = "GET"
+        request.httpMethod = "POST"
         request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
-        /*guard let httpBody = try? JSONSerialization.data(withJSONObject: {}, options: []) else {
-         return
-         }
-         request.httpBody = httpBody*/
+        let token = UserDefaults.standard.string(forKey: "token") ?? ""
+        let parameterDictionary = ["authToken": token]
+        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameterDictionary, options: []) else {
+            return
+        }
+        request.httpBody = httpBody
         
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
         
