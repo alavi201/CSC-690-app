@@ -45,7 +45,10 @@ class PostTweetViewController: UIViewController, UITextViewDelegate {
         // if tweet is empty
         if (postTweet == "Enter your tweet here" || postTweet == "") {
             // need to show the required validation insted of returning to the home screen
-            return
+            displayAlertMessage(messageToDisplay: "Please enter your tweet")
+  
+            // redirecting to the same page (not sure, if this is a correct approach)
+            return self.viewDidLoad()
         }
         
         let Url = String(format: "http://127.0.0.1:8081/createPost")
@@ -88,6 +91,22 @@ class PostTweetViewController: UIViewController, UITextViewDelegate {
         }
         task.resume()
         
+    }
+    
+    // display alert message
+    func displayAlertMessage(messageToDisplay: String) {
+        let alertController = UIAlertController(title: "Alert", message: messageToDisplay, preferredStyle: .alert)
+        
+        let oKAction = UIAlertAction(title: "OK", style: .default) {
+            (action: UIAlertAction!) in
+            
+            print("Ok button clicked")
+        }
+        
+        alertController.addAction(oKAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+        viewDidLoad()
     }
     
     /*

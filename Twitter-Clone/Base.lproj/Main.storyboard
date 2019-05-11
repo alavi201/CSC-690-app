@@ -201,6 +201,7 @@
                         <viewLayoutGuide key="safeArea" id="vc1-mN-CCF"/>
                     </view>
                     <connections>
+                        <outlet property="confirmPassword" destination="XUr-MF-ACG" id="cyZ-9F-cUz"/>
                         <outlet property="dob" destination="UqN-P4-2fq" id="ba5-XV-JJk"/>
                         <outlet property="password" destination="5sf-at-bB8" id="Hae-k7-2MM"/>
                         <outlet property="userName" destination="gg6-Wy-AXn" id="kmc-1S-opC"/>
@@ -279,7 +280,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Post Tweet"/>
                                 <connections>
-                                    <segue destination="VoH-pT-RrD" kind="presentation" id="1XY-di-7cx"/>
+                                    <segue destination="VoH-pT-RrD" kind="presentation" identifier="homeToPost" id="1XY-di-7cx"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -296,6 +297,6 @@
         <image name="logo.png" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Oeg-Jh-10e"/>
+        <segue reference="5AJ-sY-qEq"/>
     </inferredMetricsTieBreakers>
 </document>
