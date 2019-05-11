@@ -49,9 +49,9 @@ class SignUpViewController: UIViewController {
         let task = session.dataTask(with: request) {
             
             (data, response, error) in
-            if let response = response {
-//                print(response)
-            }
+//            if let response = response {
+////                print(response)
+//            }
             if let data = data {
                 do {
                     let json = try JSONSerialization.jsonObject(with: data, options: [])
@@ -63,11 +63,14 @@ class SignUpViewController: UIViewController {
                   
 //                       print(jsonArray)
                     
-                    //Now get authToken
+                    // get authToken
                     guard let token = jsonArray["authToken"] as? String else { return }
-                        print(token)
+//                        print(token)
                     
                     if ((token as? String) != nil) {
+                        // set authToken in user defaults (permant data storage)
+                        UserDefaults.standard.set(token, forKey: "token")
+
                         self.performSegue(withIdentifier: "signUpToHome", sender: nil)
                     }
                 } catch {
