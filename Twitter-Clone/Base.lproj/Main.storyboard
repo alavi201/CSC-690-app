@@ -276,17 +276,39 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TtQ-if-YMI">
-                                <rect key="frame" x="146" y="244" width="79" height="30"/>
+                                <rect key="frame" x="146" y="106" width="93" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Post Tweet"/>
                                 <connections>
                                     <segue destination="VoH-pT-RrD" kind="presentation" identifier="homeToPost" id="1XY-di-7cx"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3Yj-RC-fBE">
+                                <rect key="frame" x="70" y="151" width="245" height="552"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="customCell" id="es7-OM-ULA">
+                                        <rect key="frame" x="0.0" y="28" width="245" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="es7-OM-ULA" id="vQb-uM-7Qh">
+                                            <rect key="frame" x="0.0" y="0.0" width="245" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="h3t-vT-qIo" id="3Uf-5J-SZm"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="4Ta-bN-n7z"/>
                     </view>
+                    <connections>
+                        <outlet property="postList" destination="3Yj-RC-fBE" id="t7i-HL-Ox6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7jk-5Z-mY4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -297,6 +319,6 @@
         <image name="logo.png" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5AJ-sY-qEq"/>
+        <segue reference="LLg-Hh-g25"/>
     </inferredMetricsTieBreakers>
 </document>
