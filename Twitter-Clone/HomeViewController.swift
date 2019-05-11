@@ -53,7 +53,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     
     func populatePosts(input: String, completion: @escaping (_ result: String) -> Void) {
-        let Url = String(format: "http://127.0.0.1:8081/posts")
+        let Url = String(format: "http://127.0.0.1:8081/getFollowedPosts")
         guard let serviceUrl = URL(string: Url) else { return}
         var request = URLRequest(url: serviceUrl)
         request.httpMethod = "POST"
