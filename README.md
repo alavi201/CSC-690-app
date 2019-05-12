@@ -8,9 +8,8 @@ Our goal is to create a clone of the popular social media platform Twitter. Our 
 
 # Must-Have Features
 * User profile (with picture) [Ali]
-* User Authentication [Sidhanth]
+* User Authentication [Vipul]
 * Post Tweet [Ali]
-* Search Tweets [Vipul]
 * Search and Follow other users [Vipul]
 
 # Nice To Have Features
