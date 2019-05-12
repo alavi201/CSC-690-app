@@ -12,7 +12,8 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     @IBOutlet weak var searchBar: UISearchBar!
     var results = [[String:Any]]()
-    
+    var results1 = [[String:Any]]()
+
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -27,7 +28,14 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBAction func onSearchButtonClicked(_ sender: Any) {
         let search: String = searchBar.text!
         
-        print(search)
+        // if search is empty
+        if (search == "") {
+            // need to show the required validation insted of returning to the home screen
+            displayAlertMessage(messageToDisplay: "Please Enter User Name")
+            
+            // redirecting to the same page (not sure, if this is a correct approach)
+            return self.viewDidLoad()
+        }
         
         let Url = String(format: "http://127.0.0.1:8081/search")
         guard let serviceUrl = URL(string: Url) else { return }
@@ -57,26 +65,15 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                         return
                     }
                     
-                    if let posts = jsonArray["users"] as? [[String:Any]] {
-                        if posts.count > 0 {
-                        self.results = posts
+                    let users = jsonArray["users"] as? [[String:Any]]
+                    
+                    if (users!.count > 0 ) {
+                        // if users exists
+                        self.results = users!
                         self.tableView.reloadData()
-                        }
-                        else {
-                            if let posts = jsonArray["posts"] as? [[String:Any]] {
-                                if posts.count > 0 {
-                                    
-                                
-                                    self.results = posts
-                                    self.tableView.reloadData()
-                                }
-                            }
-                        }
+                    } else {
+                        self.displayAlertMessage(messageToDisplay: "No Results Found!")
                     }
-//
-//                    if ((token as? String) != nil) {
-//                        self.performSegue(withIdentifier: "postToHome", sender: nil)
-//                    }
                 } catch {
                     print(error)
                 }
@@ -95,14 +92,33 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
       var cell = tableView.dequeueReusableCell(withIdentifier: "searchCell") as! SearchCell
         let result = self.results[indexPath.row] as! [String:Any]
         var username = result["username"] as! String
+        var followers = result["followed"] as! Int
         
-        if let text = result["text"] as? String {
-            username = "\(username): \(text)"
+        if (followers == 1 ) {
+            // when follows another user
+            username = "\(username): Unfollow "
+        } else {
+            // when unfollows another user
+            username = "\(username): Follow "
         }
-        
-        print(username)
         
         cell.cellText.text! = username
         return cell
+    }
+    
+    // display alert message --> could be a modular function
+    func displayAlertMessage(messageToDisplay: String) {
+        let alertController = UIAlertController(title: "Alert", message: messageToDisplay, preferredStyle: .alert)
+        
+        let oKAction = UIAlertAction(title: "OK", style: .default) {
+            (action: UIAlertAction!) in
+            
+            print("Ok button clicked")
+        }
+        
+        alertController.addAction(oKAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+        viewDidLoad()
     }
 }
