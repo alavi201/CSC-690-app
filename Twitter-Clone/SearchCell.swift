@@ -11,8 +11,8 @@ import UIKit
 class SearchCell: UITableViewCell {
     
     @IBOutlet weak var cellText: UILabel!
+    @IBOutlet weak var cellButton: UIButton!
     
-  
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,7 +21,14 @@ class SearchCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
+        let title = cellButton.titleLabel!.text as! String
+        
+        if (title == "Follow") {
+            print("follow")
+        } else {
+            print("unfollow")
+        }
+        
     }
 
 }

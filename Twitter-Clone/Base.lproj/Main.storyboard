@@ -341,29 +341,37 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchCell" rowHeight="99" id="fhO-lx-ikU" customClass="SearchCell" customModule="Twitter_Clone" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="searchCell" rowHeight="99" id="fhO-lx-ikU" customClass="SearchCell" customModule="Twitter_Clone" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="99"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fhO-lx-ikU" id="1jH-lA-uNu">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="98.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="slD-1A-K9v">
-                                                    <rect key="frame" x="15" y="11" width="345" height="77"/>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" highlighted="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yKQ-xq-VgX">
+                                                    <rect key="frame" x="260" y="0.0" width="100" height="40"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.2698999688" green="0.34005620279999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <state key="normal" title="Follow">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="cellButtonClicked:" destination="fhO-lx-ikU" eventType="touchUpInside" id="xVV-ad-zfv"/>
+                                                        <action selector="cellButtonClicked:forEvent:" destination="fhO-lx-ikU" eventType="touchUpInside" id="5oh-FC-Kyx"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3h-dr-KAK">
+                                                    <rect key="frame" x="15" y="5" width="237" height="37"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="slD-1A-K9v" firstAttribute="leading" secondItem="1jH-lA-uNu" secondAttribute="leadingMargin" id="CKr-YR-4cr"/>
-                                                <constraint firstItem="slD-1A-K9v" firstAttribute="bottom" secondItem="1jH-lA-uNu" secondAttribute="bottomMargin" id="S0u-zt-y1V"/>
-                                                <constraint firstItem="slD-1A-K9v" firstAttribute="trailing" secondItem="1jH-lA-uNu" secondAttribute="trailingMargin" id="mSA-3b-yZA"/>
-                                                <constraint firstItem="slD-1A-K9v" firstAttribute="top" secondItem="1jH-lA-uNu" secondAttribute="topMargin" id="uD8-hV-RSD"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="cellText" destination="slD-1A-K9v" id="5UM-HW-h9G"/>
+                                            <outlet property="cellButton" destination="yKQ-xq-VgX" id="ceW-mh-h79"/>
+                                            <outlet property="cellText" destination="d3h-dr-KAK" id="CIn-E5-5nA"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

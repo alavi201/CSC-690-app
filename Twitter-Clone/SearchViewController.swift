@@ -12,7 +12,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     @IBOutlet weak var searchBar: UISearchBar!
     var results = [[String:Any]]()
-    var results1 = [[String:Any]]()
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -21,7 +20,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
        
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        // Do any additional setup after loading the view.
         self.tableView.rowHeight = 50
     }
     
@@ -30,7 +28,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         // if search is empty
         if (search == "") {
-            // need to show the required validation insted of returning to the home screen
             displayAlertMessage(messageToDisplay: "Please Enter User Name")
             
             // redirecting to the same page (not sure, if this is a correct approach)
@@ -89,17 +86,22 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-      var cell = tableView.dequeueReusableCell(withIdentifier: "searchCell") as! SearchCell
-        let result = self.results[indexPath.row] as! [String:Any]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "searchCell") as! SearchCell
+        let result = self.results[indexPath.row]
         var username = result["username"] as! String
-        var followers = result["followed"] as! Int
+        let followers = result["followed"] as! Int
+        let userId = result["id"] as! Int
         
         if (followers == 1 ) {
             // when follows another user
-            username = "\(username): Unfollow "
+            username = "\(username)"
+            cell.cellButton.setTitle("Unfollow",for: .normal)
+            cell.cellButton.backgroundColor = UIColor.red
         } else {
             // when unfollows another user
-            username = "\(username): Follow "
+            username = "\(username)"
+            cell.cellButton.setTitle("Follow",for: .normal)
+            cell.cellButton.backgroundColor = UIColor.blue
         }
         
         cell.cellText.text! = username
@@ -113,7 +115,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let oKAction = UIAlertAction(title: "OK", style: .default) {
             (action: UIAlertAction!) in
             
-            print("Ok button clicked")
+            print("Ok Button Clicked")
         }
         
         alertController.addAction(oKAction)
