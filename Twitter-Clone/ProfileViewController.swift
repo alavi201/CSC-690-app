@@ -33,6 +33,7 @@ UINavigationControllerDelegate{
     }
     
     func uploadImage(paramName: String, fileName: String, image: UIImage) {
+        let token = UserDefaults.standard.string(forKey: "token") ?? ""
         let url = URL(string: "http://127.0.0.1:8081/createProfile")
         
         // generate boundary string using a unique per-app string
@@ -55,6 +56,9 @@ UINavigationControllerDelegate{
         data.append("Content-Disposition: form-data; name=\"\(paramName)\"; filename=\"\(fileName)\"\r\n".data(using: .utf8)!)
         data.append("Content-Type: image/png\r\n\r\n".data(using: .utf8)!)
         data.append(image.pngData()!)
+        data.append("\r\n--\(boundary)\r\n".data(using: .utf8)!)
+        data.append("Content-Disposition: form-data; name=\"authToken\"\r\n\r\n".data(using: .utf8)!)
+        data.append("\(token)".data(using: .utf8)!)
         
         data.append("\r\n--\(boundary)--\r\n".data(using: .utf8)!)
         

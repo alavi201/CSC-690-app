@@ -342,9 +342,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ygx-d9-Rk9">
-                                <rect key="frame" x="115" y="565" width="146" height="38"/>
+                                <rect key="frame" x="113" y="565" width="150" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Upload Profile Pcture"/>
+                                <state key="normal" title="Upload Profile Picture"/>
                                 <connections>
                                     <action selector="clickCamera:" destination="HUN-F7-PSh" eventType="touchUpInside" id="FhH-ST-waz"/>
                                 </connections>
