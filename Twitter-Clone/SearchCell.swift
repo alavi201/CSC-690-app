@@ -20,15 +20,5 @@ class SearchCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        let title = cellButton.titleLabel!.text as! String
-        
-        if (title == "Follow") {
-            print("follow")
-        } else {
-            print("unfollow")
-        }
-        
     }
-
 }
