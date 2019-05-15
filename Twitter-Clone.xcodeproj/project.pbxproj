@@ -18,6 +18,8 @@
 		ACD6915422753203005CEAF0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD6915322753202005CEAF0 /* HomeViewController.swift */; };
 		ACD7ED742285DE29004A7489 /* PostTweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD7ED732285DE29004A7489 /* PostTweetViewController.swift */; };
 		ACE9955D22641B3000AF98C7 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = ACE9955C22641B3000AF98C7 /* logo.png */; };
+		F404698422878E9A005D423A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F404698322878E9A005D423A /* ProfileViewController.swift */; };
+		F404698622879015005D423A /* CameraHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F404698522879015005D423A /* CameraHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,9 +33,11 @@
 		AC3444F022875D71007719F8 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		AC3444F222878A92007719F8 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		ACD6915122751A57005CEAF0 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		ACD6915322753202005CEAF0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		ACD6915322753202005CEAF0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		ACD7ED732285DE29004A7489 /* PostTweetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTweetViewController.swift; sourceTree = "<group>"; };
 		ACE9955C22641B3000AF98C7 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = images/logo.png; sourceTree = SOURCE_ROOT; };
+		F404698322878E9A005D423A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		F404698522879015005D423A /* CameraHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraHandler.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +82,8 @@
 				ACD7ED732285DE29004A7489 /* PostTweetViewController.swift */,
 				AC3444F022875D71007719F8 /* SearchViewController.swift */,
 				AC3444F222878A92007719F8 /* SearchCell.swift */,
+				F404698322878E9A005D423A /* ProfileViewController.swift */,
+				F404698522879015005D423A /* CameraHandler.swift */,
 			);
 			path = "Twitter-Clone";
 			sourceTree = "<group>";
@@ -155,6 +161,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC3444F122875D71007719F8 /* SearchViewController.swift in Sources */,
+				F404698622879015005D423A /* CameraHandler.swift in Sources */,
+				F404698422878E9A005D423A /* ProfileViewController.swift in Sources */,
 				ACD7ED742285DE29004A7489 /* PostTweetViewController.swift in Sources */,
 				ACD6915222751A57005CEAF0 /* SignUpViewController.swift in Sources */,
 				AC3444F322878A92007719F8 /* SearchCell.swift in Sources */,
