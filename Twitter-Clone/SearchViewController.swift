@@ -10,6 +10,7 @@ import UIKit
 
 class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var welcomeMsg: UILabel!
     @IBOutlet weak var searchBar: UISearchBar!
     var results = [[String:Any]]()
 
@@ -17,7 +18,9 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
+//        welcomeMsg.text = "Welcome back "
+
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.tableView.rowHeight = 50
@@ -91,15 +94,27 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let result = self.results[indexPath.row]
         var username = result["username"] as! String
         let followers = result["followed"] as! Int
+        let imageURL = result["image_url"] as! String
+        
+        let data = NSData(contentsOf: NSURL(string: imageURL)! as URL)
+        let image = UIImage(data: data! as Data)
         
         if (followers == 1 ) {
             // when follows another user
             username = "\(username)"
+            
+            DispatchQueue.main.async(execute: {
+                cell.cellImage.image = image
+            })
             cell.cellButton.setTitle("Unfollow",for: .normal)
             cell.cellButton.backgroundColor = UIColor.red
         } else {
             // when unfollows another user
             username = "\(username)"
+            
+            DispatchQueue.main.async(execute: {
+                cell.cellImage.image = image
+            })
             cell.cellButton.setTitle("Follow",for: .normal)
             cell.cellButton.backgroundColor = UIColor.blue
         }
@@ -184,7 +199,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                         let json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments)
                         
                         print(json)
-                        
                         cell.cellButton.setTitle("Unollow",for: .normal)
                         cell.cellButton.backgroundColor = UIColor.red
                     } catch {

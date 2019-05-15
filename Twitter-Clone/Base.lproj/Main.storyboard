@@ -349,7 +349,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3h-dr-KAK">
-                                                    <rect key="frame" x="15" y="5" width="237" height="37"/>
+                                                    <rect key="frame" x="117" y="5" width="135" height="37"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -367,10 +367,15 @@
                                                         <action selector="buttonClicked:" destination="uhe-SF-YLp" eventType="touchUpInside" id="wlr-Rj-HwW"/>
                                                     </connections>
                                                 </button>
+                                                <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rsq-oy-lEQ">
+                                                    <rect key="frame" x="15" y="5" width="94" height="83"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="cellButton" destination="HBT-vU-I10" id="dZL-gN-fGa"/>
+                                            <outlet property="cellImage" destination="rsq-oy-lEQ" id="QNp-JN-6H1"/>
                                             <outlet property="cellText" destination="d3h-dr-KAK" id="CIn-E5-5nA"/>
                                         </connections>
                                     </tableViewCell>
@@ -384,6 +389,7 @@
                         <outlet property="searchBar" destination="yhs-Nl-y7m" id="2KY-D6-AhA"/>
                         <outlet property="searchDisplayController" destination="cI6-CE-mTr" id="hQS-Co-uJg"/>
                         <outlet property="tableView" destination="cak-bX-KVE" id="CJI-yz-zri"/>
+                        <outlet property="welcomeMsg" destination="93M-3K-uxl" id="REE-3y-BB6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="elV-FB-rlZ" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -12,6 +12,7 @@ class SearchCell: UITableViewCell {
     
     @IBOutlet weak var cellText: UILabel!
     @IBOutlet weak var cellButton: UIButton!
+    @IBOutlet weak var cellImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
