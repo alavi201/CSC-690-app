@@ -22,7 +22,8 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.tableView.delegate = self
         self.tableView.rowHeight = 50
     }
-    
+
+    // to search for a user name
     @IBAction func onSearchButtonClicked(_ sender: Any) {
         let search: String = searchBar.text!
         
@@ -106,6 +107,95 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.cellText.text! = username
         return cell
     }
+
+    // when either of the cell is clicked --> follow/unfollow calls
+    @IBAction func buttonClicked(_ sender: Any) {
+        let from = sender as AnyObject
+        let type = from.titleLabel!.text!
+        let cell = from.superview?.superview as! SearchCell
+        let indexPath = tableView.indexPath(for:cell)
+        let indexTarget = indexPath?.row
+        let user = results[indexTarget!]
+        let userId = user["id"]
+
+        if (type == "Unfollow") {
+            print("Unfollow User: Unfollow -> Follow")
+        
+            let Url = String(format: "http://127.0.0.1:8081/unfollowUser")
+            guard let serviceUrl = URL(string: Url) else { return }
+        
+            let token = UserDefaults.standard.string(forKey: "token") ?? ""
+            let parameterDictionary = ["authToken": token,"unfollowUserId" :userId]
+        
+            var request = URLRequest(url: serviceUrl)
+            request.httpMethod = "POST"
+            request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
+        
+            guard let httpBody = try? JSONSerialization.data(withJSONObject: parameterDictionary, options: []) else {
+                return
+            }
+            request.httpBody = httpBody
+        
+            let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
+            
+            let task = session.dataTask(with: request) {
+                
+                (data, response, error) in
+                if let data = data {
+                    do {
+                        let json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments)
+                    
+                        print(json)
+                    
+                        cell.cellButton.setTitle("Follow",for: .normal)
+                        cell.cellButton.backgroundColor = UIColor.blue
+                    } catch {
+                        print(error)
+                    }
+                }
+            }
+            task.resume()
+            self.tableView.reloadData()
+        } else {
+            print("Follow User: Follow -> Unfollow")
+            
+            let Url = String(format: "http://127.0.0.1:8081/followUser")
+            guard let serviceUrl = URL(string: Url) else { return }
+            
+            let token = UserDefaults.standard.string(forKey: "token") ?? ""
+            let parameterDictionary = ["authToken": token,"followUserId" :userId]
+            
+            var request = URLRequest(url: serviceUrl)
+            request.httpMethod = "POST"
+            request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
+            
+            guard let httpBody = try? JSONSerialization.data(withJSONObject: parameterDictionary, options: []) else {
+                return
+            }
+            request.httpBody = httpBody
+            
+            let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
+            
+            let task = session.dataTask(with: request) {
+                
+                (data, response, error) in
+                if let data = data {
+                    do {
+                        let json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments)
+                        
+                        print(json)
+                        
+                        cell.cellButton.setTitle("Unollow",for: .normal)
+                        cell.cellButton.backgroundColor = UIColor.red
+                    } catch {
+                        print(error)
+                    }
+                }
+            }
+            task.resume()
+            self.tableView.reloadData()
+        }
+    }
     
     // display alert message --> could be a modular function
     func displayAlertMessage(messageToDisplay: String) {
@@ -121,94 +211,5 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         self.present(alertController, animated: true, completion: nil)
         viewDidLoad()
-    }
-    
-    @IBAction func buttonClicked(_ sender: Any) {
-        let from = sender as AnyObject
-        let type = from.titleLabel!.text!
-        let cell = from.superview?.superview as! SearchCell
-        let indexPath = tableView.indexPath(for:cell)
-        let indexTarget = indexPath?.row
-        let user = results[indexTarget!]
-        let userId = user["id"] as! Int
-
-        print(type)
-        
-        if (type == "Follow") {
-            print("Follow -> Unfollow")
-            
-            let Url = String(format: "http://127.0.0.1:8081/unfollowUser")
-            guard let serviceUrl = URL(string: Url) else { return }
-            
-            let token = UserDefaults.standard.string(forKey: "token") ?? ""
-            let parameterDictionary = ["authToken": token,"unfollowUserId" :userId] as [String : Any]
-            
-            var request = URLRequest(url: serviceUrl)
-            request.httpMethod = "POST"
-            request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
-            
-            guard let httpBody = try? JSONSerialization.data(withJSONObject: parameterDictionary, options: []) else {
-                return
-            }
-            request.httpBody = httpBody
-            
-            let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
-            
-            let task = session.dataTask(with: request) {
-                
-                (data, response, error) in
-                if let data = data {
-                    do {
-                        let json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments)
-                        
-                        print(json)
-
-                        cell.cellButton.setTitle("Unfollow",for: .normal)
-                        cell.cellButton.backgroundColor = UIColor.red
-                    } catch {
-                        print(error)
-                    }
-                }
-            }
-            task.resume()
-            self.tableView.reloadData()
-        } else {
-            print("Unfollow -> Follow")
-            
-            let Url = String(format: "http://127.0.0.1:8081/followUser")
-            guard let serviceUrl = URL(string: Url) else { return }
-            
-            let token = UserDefaults.standard.string(forKey: "token") ?? ""
-            let parameterDictionary = ["authToken": token,"followUserId" :userId] as [String : Any]
-            var request = URLRequest(url: serviceUrl)
-            request.httpMethod = "POST"
-            request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
-            
-            guard let httpBody = try? JSONSerialization.data(withJSONObject: parameterDictionary, options: []) else {
-                return
-            }
-            request.httpBody = httpBody
-            
-            let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
-            
-            let task = session.dataTask(with: request) {
-                
-                (data, response, error) in
-                if let data = data {
-                    do {
-                        let json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments)
-                        
-                        print(json)
-                        
-                        cell.cellButton.setTitle("Follow",for: .normal)
-                        cell.cellButton.backgroundColor = UIColor.blue
-                    } catch {
-                        print(error)
-                    }
-                }
-            }
-            task.resume()
-            self.tableView.reloadData()
-        }
     }
 }
