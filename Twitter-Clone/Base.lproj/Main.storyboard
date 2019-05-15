@@ -258,7 +258,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QE0-yD-90p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2090" y="124"/>
+            <point key="canvasLocation" x="-1630" y="105"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="dL2-kZ-h6U">
@@ -283,6 +283,12 @@
                                     <segue destination="VoH-pT-RrD" kind="presentation" identifier="homeToPost" id="1XY-di-7cx"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4iM-bq-JpW">
+                                <rect key="frame" x="118" y="363" width="139" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Search"/>
+                                <connections>
+                                    <segue destination="uhe-SF-YLp" kind="presentation" identifier="homeToSearch" id="JRm-dA-lR7"/>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3Yj-RC-fBE">
                                 <rect key="frame" x="70" y="151" width="245" height="552"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -322,6 +328,16 @@
             </objects>
             <point key="canvasLocation" x="-911.20000000000005" y="104.92610837438424"/>
         </scene>
+        <!--Search View Controller-->
+        <scene sceneID="p2d-nG-kuM">
+            <objects>
+                <viewController id="uhe-SF-YLp" customClass="SearchViewController" customModule="Twitter_Clone" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mjk-QE-Wkp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Search Screen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="93M-3K-uxl">
+                                <rect key="frame" x="125" y="88" width="112" height="21"/>
         <!--Profile View Controller-->
         <scene sceneID="zEU-M3-XkX">
             <objects>
@@ -341,6 +357,88 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <searchBar contentMode="redraw" fixedFrame="YES" text="" placeholder="Enter User Name" translatesAutoresizingMaskIntoConstraints="NO" id="yhs-Nl-y7m">
+                                <rect key="frame" x="16" y="171" width="270" height="56"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
+                            </searchBar>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y7N-Eu-tJh">
+                                <rect key="frame" x="286" y="171" width="89" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.2698999688" green="0.34005620279999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Search">
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="onSearchButtonClicked:" destination="uhe-SF-YLp" eventType="touchUpInside" id="J3p-46-Td7"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cak-bX-KVE">
+                                <rect key="frame" x="0.0" y="235" width="375" height="577"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="searchCell" rowHeight="99" id="fhO-lx-ikU" customClass="SearchCell" customModule="Twitter_Clone" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="99"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fhO-lx-ikU" id="1jH-lA-uNu">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="98.666666666666671"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3h-dr-KAK">
+                                                    <rect key="frame" x="15" y="5" width="237" height="37"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HBT-vU-I10">
+                                                    <rect key="frame" x="260" y="12" width="97" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <state key="normal" title="Follow">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="buttonClicked:" destination="uhe-SF-YLp" eventType="touchUpInside" id="wlr-Rj-HwW"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="cellButton" destination="HBT-vU-I10" id="dZL-gN-fGa"/>
+                                            <outlet property="cellText" destination="d3h-dr-KAK" id="CIn-E5-5nA"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="YzT-Jt-fHd"/>
+                    </view>
+                    <connections>
+                        <outlet property="searchBar" destination="yhs-Nl-y7m" id="2KY-D6-AhA"/>
+                        <outlet property="searchDisplayController" destination="cI6-CE-mTr" id="hQS-Co-uJg"/>
+                        <outlet property="tableView" destination="cak-bX-KVE" id="CJI-yz-zri"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="elV-FB-rlZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="cI6-CE-mTr">
+                    <connections>
+                        <outlet property="delegate" destination="uhe-SF-YLp" id="HNj-Vh-uxr"/>
+                        <outlet property="searchContentsController" destination="uhe-SF-YLp" id="nLw-NS-1wd"/>
+                        <outlet property="searchResultsDataSource" destination="uhe-SF-YLp" id="oYo-cL-TMa"/>
+                        <outlet property="searchResultsDelegate" destination="uhe-SF-YLp" id="FMK-5I-WlN"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="-882.39999999999998" y="881.5270935960591"/>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ygx-d9-Rk9">
                                 <rect key="frame" x="113" y="565" width="150" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -367,6 +465,6 @@
         <image name="logo.png" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5AJ-sY-qEq"/>
+        <segue reference="Oeg-Jh-10e"/>
     </inferredMetricsTieBreakers>
 </document>

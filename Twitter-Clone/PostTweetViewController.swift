@@ -45,7 +45,7 @@ class PostTweetViewController: UIViewController, UITextViewDelegate {
         // if tweet is empty
         if (postTweet == "Enter your tweet here" || postTweet == "") {
             // need to show the required validation insted of returning to the home screen
-            displayAlertMessage(messageToDisplay: "Please enter your tweet")
+            displayAlertMessage(messageToDisplay: "Please Enter Your Tweet")
   
             // redirecting to the same page (not sure, if this is a correct approach)
             return self.viewDidLoad()
