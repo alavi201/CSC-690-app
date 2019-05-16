@@ -67,8 +67,9 @@ class SignUpViewController: UIViewController {
                     guard let token = jsonArray["authToken"] as? String else { return }
 //                        print(token)
                     
-                    if ((token as? String) != nil) {
-                        // set authToken in user defaults (permant data storage)
+                    if ((token as? String) != nil) {                        
+                        // set username and authToken in user defaults (permant data storage)
+                        UserDefaults.standard.set(username, forKey: "username")
                         UserDefaults.standard.set(token, forKey: "token")
 
                         self.performSegue(withIdentifier: "signUpToHome", sender: nil)

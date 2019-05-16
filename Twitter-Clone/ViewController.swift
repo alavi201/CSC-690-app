@@ -48,12 +48,13 @@ class ViewController: UIViewController {
                     guard let jsonArray = json as? [String: Any] else {
                         return
                     }
-
+                    
                     // get authToken
                     guard let token = jsonArray["authToken"] as? String else { return }
 
                     if ((token as? String) != nil) {
-                        // set authToken in user defaults (permant data storage)
+                        // set username and authToken in user defaults (permant data storage)
+                        UserDefaults.standard.set(username, forKey: "username")
                         UserDefaults.standard.set(token, forKey: "token")
 
                     self.performSegue(withIdentifier: "signIntoHome", sender: nil)

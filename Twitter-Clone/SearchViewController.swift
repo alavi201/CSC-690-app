@@ -18,8 +18,11 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        welcomeMsg.text = "Welcome back "
+
+        // get username
+        let username = UserDefaults.standard.string(forKey: "username") ?? ""
+
+        welcomeMsg.text = "Welcome " + username
 
         self.tableView.dataSource = self
         self.tableView.delegate = self
@@ -102,19 +105,21 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if (followers == 1 ) {
             // when follows another user
             username = "\(username)"
-            
-            DispatchQueue.main.async(execute: {
-                cell.cellImage.image = image
-            })
+//
+//            DispatchQueue.main.async(execute: {
+//                cell.cellImage.image = image
+//            })
+            cell.cellImage.image = image
             cell.cellButton.setTitle("Unfollow",for: .normal)
             cell.cellButton.backgroundColor = UIColor.red
         } else {
             // when unfollows another user
             username = "\(username)"
-            
-            DispatchQueue.main.async(execute: {
-                cell.cellImage.image = image
-            })
+//
+//            DispatchQueue.main.async(execute: {
+//                cell.cellImage.image = image
+//            })
+            cell.cellImage.image = image
             cell.cellButton.setTitle("Follow",for: .normal)
             cell.cellButton.backgroundColor = UIColor.blue
         }
