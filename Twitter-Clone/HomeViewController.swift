@@ -39,6 +39,19 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        populatePosts(input: "") {
+//            (result: String) in
+//            self.postList.delegate = self
+//            self.postList.dataSource = self
+//            self.postList.register(UITableViewCell.self, forCellReuseIdentifier: "customcell")
+//            self.postList.reloadData()
+//        }
+        
+        // Do any additional setup after loading the view.
+    }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
         populatePosts(input: "") {
             (result: String) in
             self.postList.delegate = self
@@ -46,11 +59,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             self.postList.register(UITableViewCell.self, forCellReuseIdentifier: "customcell")
             self.postList.reloadData()
         }
-        
-        
-        // Do any additional setup after loading the view.
     }
-    
     
     func populatePosts(input: String, completion: @escaping (_ result: String) -> Void) {
         let Url = String(format: "http://127.0.0.1:8081/getFollowedPosts")
@@ -79,7 +88,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                     guard let jsonArray = jsonResponse as? [[String: Any]] else {
                         return
                     }
-                    print(jsonArray)
+                    
+                    self.posts.removeAll()
                     for dic in jsonArray{
                         self.posts.append(Post(dic))
                     }

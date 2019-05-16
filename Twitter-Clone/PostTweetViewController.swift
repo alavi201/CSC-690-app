@@ -82,7 +82,17 @@ class PostTweetViewController: UIViewController, UITextViewDelegate {
                     }
 
                     if ((token as? String) != nil) {
-                        self.performSegue(withIdentifier: "postToHome", sender: nil)
+//                        self.tweet.layer.borderColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0).cgColor
+                        
+//                        self.tweet.layer.borderWidth = 2.0;
+//                        self.tweet.layer.cornerRadius = 5.0;
+//
+                        // set placeholder and color to the text view
+                        self.tweet.text = "Enter your tweet here"
+                        self.tweet.textColor = UIColor.lightGray
+                        
+                        // add a delgate to the tweet text view
+//                        self.tweet.delegate = self
                     }
                 } catch {
                     print(error)
