@@ -41,10 +41,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         populatePosts(input: "") {
             (result: String) in
-            /*self.postList.delegate = self
+            self.postList.delegate = self
             self.postList.dataSource = self
             self.postList.register(UITableViewCell.self, forCellReuseIdentifier: "customcell")
-            self.postList.reloadData()*/
+            self.postList.reloadData()
         }
         
         
