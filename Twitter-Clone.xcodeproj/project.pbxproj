@@ -13,7 +13,6 @@
 		AC119C422264065400F8E06D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC119C412264065400F8E06D /* Assets.xcassets */; };
 		AC119C452264065400F8E06D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC119C432264065400F8E06D /* LaunchScreen.storyboard */; };
 		AC3444F122875D71007719F8 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3444F022875D71007719F8 /* SearchViewController.swift */; };
-		AC3444F322878A92007719F8 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3444F222878A92007719F8 /* SearchCell.swift */; };
 		AC9D72AE228CEA2800CC960B /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = AC9D72AD228CEA2800CC960B /* home.png */; };
 		AC9E8488228CEDA400F780AE /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = AC9E8487228CEDA400F780AE /* search.png */; };
 		AC9E848B228CEE1C00F780AE /* postTweet.png in Resources */ = {isa = PBXBuildFile; fileRef = AC9E8489228CEE1B00F780AE /* postTweet.png */; };
@@ -23,8 +22,9 @@
 		ACD6915422753203005CEAF0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD6915322753202005CEAF0 /* HomeViewController.swift */; };
 		ACD7ED742285DE29004A7489 /* PostTweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD7ED732285DE29004A7489 /* PostTweetViewController.swift */; };
 		ACE9955D22641B3000AF98C7 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = ACE9955C22641B3000AF98C7 /* logo.png */; };
-		F4C494B2228D18C900129143 /* CameraHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C494B1228D18C900129143 /* CameraHandler.swift */; };
-		F4C494B4228D19F900129143 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C494B3228D19F900129143 /* ProfileViewController.swift */; };
+		F41195E8228D3A660050A784 /* CameraHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41195E7228D3A660050A784 /* CameraHandler.swift */; };
+		F41195EA228D3A6F0050A784 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41195E9228D3A6F0050A784 /* ProfileViewController.swift */; };
+		F41195EB228D3B350050A784 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3444F222878A92007719F8 /* SearchCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,8 +46,8 @@
 		ACD6915322753202005CEAF0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		ACD7ED732285DE29004A7489 /* PostTweetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTweetViewController.swift; sourceTree = "<group>"; };
 		ACE9955C22641B3000AF98C7 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = images/logo.png; sourceTree = SOURCE_ROOT; };
-		F4C494B1228D18C900129143 /* CameraHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraHandler.swift; sourceTree = "<group>"; };
-		F4C494B3228D19F900129143 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		F41195E7228D3A660050A784 /* CameraHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraHandler.swift; sourceTree = "<group>"; };
+		F41195E9228D3A6F0050A784 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +97,8 @@
 				ACD7ED732285DE29004A7489 /* PostTweetViewController.swift */,
 				AC3444F022875D71007719F8 /* SearchViewController.swift */,
 				AC3444F222878A92007719F8 /* SearchCell.swift */,
-				F404698322878E9A005D423A /* ProfileViewController.swift */,
-				F404698522879015005D423A /* CameraHandler.swift */,
+				F41195E7228D3A660050A784 /* CameraHandler.swift */,
+				F41195E9228D3A6F0050A784 /* ProfileViewController.swift */,
 			);
 			path = "Twitter-Clone";
 			sourceTree = "<group>";
@@ -180,13 +180,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F41195E8228D3A660050A784 /* CameraHandler.swift in Sources */,
 				AC3444F122875D71007719F8 /* SearchViewController.swift in Sources */,
 				ACD7ED742285DE29004A7489 /* PostTweetViewController.swift in Sources */,
 				ACD6915222751A57005CEAF0 /* SignUpViewController.swift in Sources */,
+				F41195EB228D3B350050A784 /* SearchCell.swift in Sources */,
 				AC119C3D2264065100F8E06D /* ViewController.swift in Sources */,
-				F4C494B2228D18C900129143 /* CameraHandler.swift in Sources */,
-				F4C494B4228D19F900129143 /* ProfileViewController.swift in Sources */,
 				AC119C3B2264065100F8E06D /* AppDelegate.swift in Sources */,
+				F41195EA228D3A6F0050A784 /* ProfileViewController.swift in Sources */,
 				ACD6915422753203005CEAF0 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
