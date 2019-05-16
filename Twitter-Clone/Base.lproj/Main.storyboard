@@ -283,14 +283,6 @@
                                     <segue destination="VoH-pT-RrD" kind="presentation" identifier="homeToPost" id="1XY-di-7cx"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4iM-bq-JpW">
-                                <rect key="frame" x="118" y="363" width="139" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Search"/>
-                                <connections>
-                                    <segue destination="uhe-SF-YLp" kind="presentation" identifier="homeToSearch" id="JRm-dA-lR7"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="4Ta-bN-n7z"/>
@@ -393,8 +385,9 @@
                                     <tabBarItem title="Post" image="postTweet.png" id="dDK-ks-POA">
                                         <inset key="imageInsets" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
                                     </tabBarItem>
-                                    <tabBarItem title="Search" image="search.png" id="4Bk-0r-Waf">
+                                    <tabBarItem tag="16" title="Search" image="search.png" id="4Bk-0r-Waf">
                                         <inset key="imageInsets" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
+                                        <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tabBarItem>
                                     <tabBarItem title="Profile" image="profile.png" id="MY3-ML-bVe">
                                         <inset key="imageInsets" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
