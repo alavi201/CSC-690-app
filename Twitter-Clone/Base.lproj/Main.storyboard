@@ -367,7 +367,7 @@
             </objects>
             <point key="canvasLocation" x="-911.20000000000005" y="1099.5073891625616"/>
         </scene>
-      <!--Search View Controller-->
+        <!--Search View Controller-->
         <scene sceneID="p2d-nG-kuM">
             <objects>
                 <viewController id="uhe-SF-YLp" customClass="SearchViewController" customModule="Twitter_Clone" customModuleProvider="target" sceneMemberID="viewController">
@@ -494,18 +494,19 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-2471" y="105"/>
+            <point key="canvasLocation" x="-2798" y="105"/>
         </scene>
     </scenes>
     <resources>
-        <image name="home.png" width="50" height="50"/>
+        <image name="home.png" width="37.5" height="37.5"/>
         <image name="logo.png" width="1024" height="1024"/>
-        <image name="logout.png" width="50" height="50"/>
-        <image name="postTweet.png" width="50" height="50"/>
-        <image name="profile.png" width="50" height="50"/>
-        <image name="search.png" width="50" height="50"/>
+        <image name="logout.png" width="37.5" height="37.5"/>
+        <image name="postTweet.png" width="37.5" height="37.5"/>
+        <image name="profile.png" width="37.5" height="37.5"/>
+        <image name="search.png" width="37.5" height="37.5"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5AJ-sY-qEq"/>
+        <segue reference="1XY-di-7cx"/>
+        <segue reference="Oeg-Jh-10e"/>
     </inferredMetricsTieBreakers>
 </document>
