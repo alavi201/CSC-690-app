@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -54,6 +54,7 @@
                                 <state key="normal" title="Sign In"/>
                                 <connections>
                                     <action selector="onSignInClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VNA-vd-5eB"/>
+                                    <segue destination="bUU-jy-fLA" kind="presentation" identifier="signIntoHome" id="aoT-cO-CT4"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="UfR-Sf-5Ep">
@@ -85,12 +86,11 @@
                     <connections>
                         <outlet property="password" destination="iYb-bg-GPI" id="odk-o2-6cL"/>
                         <outlet property="userName" destination="cJ1-Dl-NAf" id="KEq-3A-JPS"/>
-                        <segue destination="h3t-vT-qIo" kind="presentation" identifier="signIntoHome" id="LLg-Hh-g25"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-73" y="105"/>
+            <point key="canvasLocation" x="545" y="40"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="Fg6-Q5-z1m">
@@ -134,6 +134,7 @@
                                 <connections>
                                     <action selector="onSignUpClicked:" destination="ZeG-Pk-Pap" eventType="touchUpInside" id="UJH-jr-EDL"/>
                                     <action selector="onSignUpClicked:" destination="wid-BX-c6a" eventType="touchUpInside" id="uBp-00-k1B"/>
+                                    <segue destination="bUU-jy-fLA" kind="presentation" identifier="signUpToHome" id="cYz-Tz-Xuj"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your password" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="5sf-at-bB8">
@@ -205,15 +206,14 @@
                         <outlet property="dob" destination="UqN-P4-2fq" id="ba5-XV-JJk"/>
                         <outlet property="password" destination="5sf-at-bB8" id="Hae-k7-2MM"/>
                         <outlet property="userName" destination="gg6-Wy-AXn" id="kmc-1S-opC"/>
-                        <segue destination="h3t-vT-qIo" kind="presentation" identifier="signUpToHome" id="5AJ-sY-qEq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y1d-zy-PQs" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="ZeG-Pk-Pap" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="748" y="105"/>
+            <point key="canvasLocation" x="-1470" y="-500"/>
         </scene>
-        <!--Post Tweet View Controller-->
+        <!--Post Tweet-->
         <scene sceneID="3IK-m4-RjQ">
             <objects>
                 <viewController id="VoH-pT-RrD" customClass="PostTweetViewController" customModule="Twitter_Clone" customModuleProvider="target" sceneMemberID="viewController">
@@ -245,22 +245,22 @@
                                 <connections>
                                     <action selector="onPostTweetClicked:" destination="VoH-pT-RrD" eventType="touchUpInside" id="aRH-Cl-Jaw"/>
                                     <action selector="onSignInClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3ct-Gx-9Yp"/>
-                                    <segue destination="h3t-vT-qIo" kind="presentation" identifier="postToHome" id="Oeg-Jh-10e"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Aov-Ds-uAL"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Post Tweet" image="postTweet" id="qOh-Mp-gMK"/>
                     <connections>
                         <outlet property="tweet" destination="lT4-Tw-HEW" id="0eW-Ti-ikh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QE0-yD-90p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2090" y="124"/>
+            <point key="canvasLocation" x="-5762.3999999999996" y="-535.71428571428578"/>
         </scene>
-        <!--Home View Controller-->
+        <!--Home-->
         <scene sceneID="dL2-kZ-h6U">
             <objects>
                 <viewController id="h3t-vT-qIo" customClass="HomeViewController" customModule="Twitter_Clone" customModuleProvider="target" sceneMemberID="viewController">
@@ -275,24 +275,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TtQ-if-YMI">
-                                <rect key="frame" x="231" y="119" width="79" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Post Tweet"/>
-                                <connections>
-                                    <segue destination="VoH-pT-RrD" kind="presentation" identifier="homeToPost" id="1XY-di-7cx"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0bc-cx-hoM">
-                                <rect key="frame" x="47" y="748" width="96" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Profile"/>
-                                <connections>
-                                    <segue destination="HUN-F7-PSh" kind="presentation" identifier="homeToProfile" id="KKV-aC-ibs"/>
-                                </connections>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3Yj-RC-fBE">
-                                <rect key="frame" x="16" y="188" width="343" height="552"/>
+                                <rect key="frame" x="16" y="143" width="343" height="586"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -314,15 +298,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="4Ta-bN-n7z"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Home" image="home" id="1Xl-gE-8DX"/>
                     <connections>
                         <outlet property="postList" destination="3Yj-RC-fBE" id="0qN-IU-Djn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7jk-5Z-mY4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-911.20000000000005" y="104.92610837438424"/>
+            <point key="canvasLocation" x="-2138.4000000000001" y="380.54187192118229"/>
         </scene>
-        <!--Profile View Controller-->
+        <!--Profile-->
         <scene sceneID="zEU-M3-XkX">
             <objects>
                 <viewController id="HUN-F7-PSh" customClass="ProfileViewController" customModule="Twitter_Clone" customModuleProvider="target" sceneMemberID="viewController">
@@ -360,6 +345,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="qM0-Im-HW8"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Profile" image="profile" id="5Nv-as-s0J"/>
                     <connections>
                         <outlet property="camera" destination="ygx-d9-Rk9" id="JsK-D2-PP3"/>
                         <outlet property="imageView" destination="Nai-pd-NvV" id="1MK-hM-Mco"/>
@@ -368,7 +354,27 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ETb-yg-IST" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-911.20000000000005" y="1099.5073891625616"/>
+            <point key="canvasLocation" x="-3983" y="-814"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="GAs-3Q-cOd">
+            <objects>
+                <tabBarController id="bUU-jy-fLA" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3j1-0S-q5a">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="h3t-vT-qIo" kind="relationship" relationship="viewControllers" id="AUq-KY-ILC"/>
+                        <segue destination="uhe-SF-YLp" kind="relationship" relationship="viewControllers" id="Jng-hK-UaC"/>
+                        <segue destination="VoH-pT-RrD" kind="relationship" relationship="viewControllers" id="pbq-iq-wpX"/>
+                        <segue destination="HUN-F7-PSh" kind="relationship" relationship="viewControllers" id="Sd4-yB-SKc"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QOG-bz-0Tq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-113" y="1122"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="p2d-nG-kuM">
@@ -451,27 +457,6 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lv6-6h-ico">
-                                <rect key="frame" x="0.0" y="729" width="375" height="49"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <items>
-                                    <tabBarItem title="Home" image="home.png" id="nGW-aN-gf3">
-                                        <inset key="imageInsets" minX="0.0" minY="10" maxX="0.0" maxY="1"/>
-                                        <inset key="largeContentSizeImageInsets" minX="1" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                    </tabBarItem>
-                                    <tabBarItem title="Post" image="postTweet.png" id="dDK-ks-POA">
-                                        <inset key="imageInsets" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
-                                    </tabBarItem>
-                                    <tabBarItem tag="16" title="Search" image="search.png" id="4Bk-0r-Waf">
-                                        <inset key="imageInsets" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
-                                        <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </tabBarItem>
-                                    <tabBarItem title="Profile" image="profile.png" id="MY3-ML-bVe">
-                                        <inset key="imageInsets" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
-                                    </tabBarItem>
-                                </items>
-                            </tabBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logout.png" translatesAutoresizingMaskIntoConstraints="NO" id="6Rf-ul-GCn">
                                 <rect key="frame" x="16" y="98" width="45" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -480,6 +465,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="YzT-Jt-fHd"/>
                     </view>
+                    <tabBarItem key="tabBarItem" systemItem="search" id="EBu-bC-yZj"/>
                     <connections>
                         <outlet property="searchBar" destination="yhs-Nl-y7m" id="2KY-D6-AhA"/>
                         <outlet property="searchDisplayController" destination="cI6-CE-mTr" id="hQS-Co-uJg"/>
@@ -497,18 +483,17 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-2798" y="105"/>
+            <point key="canvasLocation" x="-8238" y="-231"/>
         </scene>
     </scenes>
     <resources>
-        <image name="home.png" width="37.5" height="37.5"/>
+        <image name="home" width="18.75" height="18.75"/>
         <image name="logo.png" width="1024" height="1024"/>
-        <image name="logout.png" width="37.5" height="37.5"/>
-        <image name="postTweet.png" width="37.5" height="37.5"/>
-        <image name="profile.png" width="37.5" height="37.5"/>
-        <image name="search.png" width="37.5" height="37.5"/>
+        <image name="logout.png" width="50" height="50"/>
+        <image name="postTweet" width="18.75" height="18.75"/>
+        <image name="profile" width="18.75" height="18.75"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="LLg-Hh-g25"/>
+        <segue reference="cYz-Tz-Xuj"/>
     </inferredMetricsTieBreakers>
 </document>
