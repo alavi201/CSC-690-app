@@ -20,7 +20,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return cell
     }
     
-
+    
     struct Post {
         var username: String
         var uuid: String
@@ -92,5 +92,5 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         task.resume()
     }
-
+    
 }
