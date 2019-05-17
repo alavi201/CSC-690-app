@@ -9,7 +9,12 @@
 import UIKit
 
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
+
     
+    @IBOutlet weak var logOut: UIImageView!
+    
+    @IBOutlet weak var welcomeMsg: UILabel!
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.posts.count
     }
@@ -39,17 +44,52 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        populatePosts(input: "") {
-//            (result: String) in
-//            self.postList.delegate = self
-//            self.postList.dataSource = self
-//            self.postList.register(UITableViewCell.self, forCellReuseIdentifier: "customcell")
-//            self.postList.reloadData()
-//        }
+        // get username
+        let username = UserDefaults.standard.string(forKey: "username") ?? ""
         
-        // Do any additional setup after loading the view.
+        welcomeMsg.text = "Welcome " + username
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+
+        self.logOut.isUserInteractionEnabled = true
+        self.logOut.addGestureRecognizer(tapGestureRecognizer)
     }
     
+    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
+        
+        let Url = String(format: "http://127.0.0.1:8081/logout")
+        guard let serviceUrl = URL(string: Url) else { return}
+        var request = URLRequest(url: serviceUrl)
+        request.httpMethod = "POST"
+        request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
+        let token = UserDefaults.standard.string(forKey: "token") ?? ""
+        let parameterDictionary = ["authToken": token]
+        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameterDictionary, options: []) else {
+            return
+        }
+        request.httpBody = httpBody
+        
+        let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
+        
+        let task = session.dataTask(with: request) {
+            
+            (data, response, error) in
+            if let response = response {
+                print(response)
+            }
+            if let data = data {
+                do {
+                    if ((token as? String) != nil) {
+                        self.performSegue(withIdentifier: "logout", sender: nil)
+                    }
+                } catch {
+                    print(error)
+                }
+            }
+        }
+        task.resume()        
+//        self.performSegue(withIdentifier: "logout", sender: nil)
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         populatePosts(input: "") {
@@ -103,5 +143,4 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         task.resume()
     }
-    
 }
