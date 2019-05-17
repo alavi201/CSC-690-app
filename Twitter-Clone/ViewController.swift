@@ -49,16 +49,19 @@ class ViewController: UIViewController {
                         return
                     }
                     
-                    // get authToken
-                    guard let token = jsonArray["authToken"] as? String else { return }
-
-                    if ((token as? String) != nil) {
-                        // set username and authToken in user defaults (permant data storage)
-                        UserDefaults.standard.set(username, forKey: "username")
-                        UserDefaults.standard.set(token, forKey: "token")
-
-                    self.performSegue(withIdentifier: "signIntoHome", sender: nil)
+                    if jsonArray["authToken"] != nil {
+                        
+                       
+                            // set username and authToken in user defaults (permant data storage)
+                        let token = jsonArray["authToken"] as! String
+                            UserDefaults.standard.set(username, forKey: "username")
+                            UserDefaults.standard.set(token, forKey: "token")
+                            
+                            self.performSegue(withIdentifier: "signIn", sender: nil)
+                        
                     }
+
+                    
                 } catch {
                     print(error)
                 }
@@ -68,5 +71,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func onSignUpClicked(_ sender: Any) {
+        
+        self.performSegue(withIdentifier: "signUpView", sender: nil)
     }
 }

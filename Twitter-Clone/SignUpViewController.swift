@@ -72,7 +72,7 @@ class SignUpViewController: UIViewController {
                         UserDefaults.standard.set(username, forKey: "username")
                         UserDefaults.standard.set(token, forKey: "token")
 
-                        self.performSegue(withIdentifier: "signUpToHome", sender: nil)
+                        self.performSegue(withIdentifier: "signUp", sender: nil)
                     }
                 } catch {
                     print(error)
@@ -86,6 +86,8 @@ class SignUpViewController: UIViewController {
     
     
     @IBAction func onSignInClicked(_ sender: Any) {
+        
+        
     }
     
 }

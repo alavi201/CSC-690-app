@@ -80,6 +80,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             if let data = data {
                 do {
                     if ((token as? String) != nil) {
+                        UserDefaults.standard.removeObject(forKey: "token")
+                        UserDefaults.standard.removeObject(forKey: "username")
                         self.performSegue(withIdentifier: "logout", sender: nil)
                     }
                 } catch {
