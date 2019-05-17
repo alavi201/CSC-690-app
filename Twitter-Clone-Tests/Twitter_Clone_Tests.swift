@@ -77,4 +77,71 @@ class Twitter_Clone_Tests: XCTestCase {
         // 3
         waitForExpectations(timeout: 5, handler: nil)
     }
+    
+    func testUserSearch() {
+        // given
+        let url = URL(string: "http://127.0.0.1:8081/searchUserTest")
+        // 1
+        let promise = expectation(description: "user")
+        
+        // when
+        let dataTask = sessionUnderTest.dataTask(with: url!) { data, response, error in
+            // then
+            let json = try! JSONSerialization.jsonObject(with: data!, options: [])
+            
+            guard let jsonArray = json as? [String: Any] else {
+                return
+            }
+            if let error = error {
+                XCTFail("Error: \(error.localizedDescription)")
+                return
+            } else if let statusCode = (response as? HTTPURLResponse)?.statusCode {
+                if statusCode == 200 &&
+                    jsonArray["username"] != nil &&
+                    jsonArray["image_url"] != nil &&
+                    jsonArray["followed"] != nil{
+                    promise.fulfill()
+                } else {
+                    XCTFail("user")
+                }
+            }
+        }
+        dataTask.resume()
+        // 3
+        waitForExpectations(timeout: 5, handler: nil)
+    }
+    
+    func testPostsFetch() {
+        // given
+        let url = URL(string: "http://127.0.0.1:8081/fetchPosts")
+        // 1
+        let promise = expectation(description: "posts")
+        
+        // when
+        let dataTask = sessionUnderTest.dataTask(with: url!) { data, response, error in
+            // then
+            let json = try! JSONSerialization.jsonObject(with: data!, options: [])
+            
+            guard let jsonArray = json as? [String: Any] else {
+                return
+            }
+            if let error = error {
+                XCTFail("Error: \(error.localizedDescription)")
+                return
+            } else if let statusCode = (response as? HTTPURLResponse)?.statusCode {
+                if statusCode == 200 &&
+                    jsonArray["username"] != nil &&
+                    jsonArray["uuid"] != nil &&
+                    jsonArray["text"] != nil &&
+                    jsonArray["created_at"] != nil {
+                    promise.fulfill()
+                } else {
+                    XCTFail("posts")
+                }
+            }
+        }
+        dataTask.resume()
+        // 3
+        waitForExpectations(timeout: 5, handler: nil)
+    }
 }
