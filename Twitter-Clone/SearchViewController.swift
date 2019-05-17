@@ -204,7 +204,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                         let json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments)
                         
                         print(json)
-                        cell.cellButton.setTitle("Unollow",for: .normal)
+                        cell.cellButton.setTitle("Unfollow",for: .normal)
                         cell.cellButton.backgroundColor = UIColor.red
                     } catch {
                         print(error)

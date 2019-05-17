@@ -13,7 +13,7 @@ class ProfileViewController: UIViewController,
 UINavigationControllerDelegate{
     @IBOutlet weak var camera: UIButton!
     @IBOutlet weak var imageView: UIImageView!
-    //@IBOutlet weak var welcomeText: UILabel!
+    @IBOutlet weak var welcomeMsg: UILabel!
     
     @IBOutlet weak var uploadImage: UIButton!
     @IBOutlet weak var usernameDisplay: UILabel!
@@ -32,6 +32,13 @@ UINavigationControllerDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // get username
+        let username = UserDefaults.standard.string(forKey: "username") ?? ""
+        
+        welcomeMsg.text = "Welcome " + username
+
+        
         fetchProfile(input: "") {
             (result: String) in
             self.usernameDisplay.text = "Welcome back " + self.currentUser.username

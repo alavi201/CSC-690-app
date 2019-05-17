@@ -9,7 +9,12 @@
 import UIKit
 
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
+
     
+    @IBOutlet weak var logOut: UIImageView!
+    
+    @IBOutlet weak var welcomeMsg: UILabel!
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.posts.count
     }
@@ -39,17 +44,26 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        populatePosts(input: "") {
-//            (result: String) in
-//            self.postList.delegate = self
-//            self.postList.dataSource = self
-//            self.postList.register(UITableViewCell.self, forCellReuseIdentifier: "customcell")
-//            self.postList.reloadData()
-//        }
+        // get username
+        let username = UserDefaults.standard.string(forKey: "username") ?? ""
         
-        // Do any additional setup after loading the view.
+        welcomeMsg.text = "Welcome " + username
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+
+        self.logOut.isUserInteractionEnabled = true
+        self.logOut.addGestureRecognizer(tapGestureRecognizer)
     }
     
+    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
+    {
+        
+        /// netw
+        
+           self.performSegue(withIdentifier: "logout", sender: nil)
+        
+        // Your action
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         populatePosts(input: "") {

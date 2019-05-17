@@ -11,11 +11,17 @@ import UIKit
 class PostTweetViewController: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var tweet: UITextView!
-   
+    @IBOutlet weak var welcomeMsg: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 //        @IBOutlet weak var tweet: UITextView!
             // Do any additional setup after loading the view.
+        
+        // get username
+        let username = UserDefaults.standard.string(forKey: "username") ?? ""
+        
+        welcomeMsg.text = "Welcome " + username
 
         // set border to the text view
         tweet.layer.borderColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0).cgColor
