@@ -16,23 +16,20 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
-    
+
+    // when sign up button clicked on sign up screen
     @IBAction func onSignUpClicked(_ sender: Any) {
         let username: String = userName.text!
         let pass: String = password.text!
-        
         let Url = String(format: "http://127.0.0.1:8081/register")
         guard let serviceUrl = URL(string: Url) else { return }
 
         let dateFormatter = DateFormatter()
-        // we specify the display format, e.g. "27-08-2015
+        // specify the display format, e.g. "27-08-2015
         dateFormatter.dateFormat = "YYYY-MM-dd"
-        // we get the date from the UIDatePicker and convert it to a string
+        // get the date from the UIDatePicker and convert it to a string
         let dateOfBirth = dateFormatter.string(from: dob.date)
-
-//        print("Dob: " + dateOfBirth)
         
         let parameterDictionary = ["username" :username, "password" : pass, "dob":dateOfBirth]
         var request = URLRequest(url: serviceUrl)
@@ -49,23 +46,15 @@ class SignUpViewController: UIViewController {
         let task = session.dataTask(with: request) {
             
             (data, response, error) in
-//            if let response = response {
-////                print(response)
-//            }
             if let data = data {
                 do {
                     let json = try JSONSerialization.jsonObject(with: data, options: [])
-//                                        print(json)
-                    
                     guard let jsonArray = json as? [String: Any] else {
                         return
                     }
-                  
-//                       print(jsonArray)
-                    
+
                     // get authToken
                     guard let token = jsonArray["authToken"] as? String else { return }
-//                        print(token)
                     
                     if ((token as? String) != nil) {                        
                         // set username and authToken in user defaults (permant data storage)
@@ -79,15 +68,11 @@ class SignUpViewController: UIViewController {
                 }
             }
         }
-        
         task.resume()
-        
     }
-    
-    
+
+    // when sign up button clicked on sign up screen
     @IBAction func onSignInClicked(_ sender: Any) {
-        
-        
+        // segway added in the Main.storyboard
     }
-    
 }

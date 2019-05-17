@@ -18,11 +18,10 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
     
+    // when sign in button clicked on sign in screen
     @IBAction func onSignInClicked(_ sender: Any) {
-        
         let username: String = userName.text!
         let pass: String = password.text!
-    
         let Url = String(format: "http://127.0.0.1:8081/login")
         guard let serviceUrl = URL(string: Url) else { return }
         
@@ -51,20 +50,16 @@ class ViewController: UIViewController {
                     
                     if jsonArray["authToken"] != nil {
                         
-                       
-                            // set username and authToken in user defaults (permant data storage)
+                        // set username and authToken in user defaults (permant data storage)
                         let token = jsonArray["authToken"] as! String
-                            UserDefaults.standard.set(username, forKey: "username")
-                            UserDefaults.standard.set(token, forKey: "token")
+                        UserDefaults.standard.set(username, forKey: "username")
+                        UserDefaults.standard.set(token, forKey: "token")
                             
-                            self.performSegue(withIdentifier: "signIn", sender: nil)
+                        self.performSegue(withIdentifier: "signIn", sender: nil)
                         
-                    }
-                    else {
+                    } else {
                         self.displayAlertMessage(messageToDisplay: "Invalid username or password")
                     }
-
-                    
                 } catch {
                     print(error)
                 }
@@ -73,11 +68,12 @@ class ViewController: UIViewController {
         task.resume()
     }
     
+    // when sign up button clicked on sign in screen
     @IBAction func onSignUpClicked(_ sender: Any) {
-        
         self.performSegue(withIdentifier: "signUpView", sender: nil)
     }
-    
+
+    // to display alert message
     func displayAlertMessage(messageToDisplay: String) {
         let alertController = UIAlertController(title: "Alert", message: messageToDisplay, preferredStyle: .alert)
         

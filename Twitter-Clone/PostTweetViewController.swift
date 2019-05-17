@@ -15,9 +15,6 @@ class PostTweetViewController: UIViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        @IBOutlet weak var tweet: UITextView!
-            // Do any additional setup after loading the view.
-        
         // get username
         let username = UserDefaults.standard.string(forKey: "username") ?? ""
         
@@ -25,7 +22,6 @@ class PostTweetViewController: UIViewController, UITextViewDelegate {
 
         // set border to the text view
         tweet.layer.borderColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0).cgColor
-        
         tweet.layer.borderWidth = 2.0;
         tweet.layer.cornerRadius = 5.0;
         
@@ -44,22 +40,19 @@ class PostTweetViewController: UIViewController, UITextViewDelegate {
             textView.textColor = UIColor.black
         }
     }
-    
+
+    // when post tweet button clicked on post tweet screen
     @IBAction func onPostTweetClicked(_ sender: Any) {
         let postTweet: String = tweet.text!
         
         // if tweet is empty
         if (postTweet == "Enter your tweet here" || postTweet == "") {
-            // need to show the required validation insted of returning to the home screen
             displayAlertMessage(messageToDisplay: "Please enter your tweet")
-  
-            // redirecting to the same page (not sure, if this is a correct approach)
             return self.viewDidLoad()
         }
         
         let Url = String(format: "http://127.0.0.1:8081/createPost")
         guard let serviceUrl = URL(string: Url) else { return }
-        
         let token = UserDefaults.standard.string(forKey: "token") ?? ""
 
         let parameterDictionary = ["authToken": token,"text" :postTweet]
@@ -81,8 +74,6 @@ class PostTweetViewController: UIViewController, UITextViewDelegate {
                 do {
                     let json = try JSONSerialization.jsonObject(with: data, options: [])
 
-                    print(json)
-
                     guard let jsonArray = json as? [String: Any] else {
                         return
                     }
@@ -98,7 +89,6 @@ class PostTweetViewController: UIViewController, UITextViewDelegate {
             }
         }
         task.resume()
-        
     }
     
     // display alert message
@@ -116,15 +106,4 @@ class PostTweetViewController: UIViewController, UITextViewDelegate {
         self.present(alertController, animated: true, completion: nil)
         viewDidLoad()
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -9,14 +9,14 @@
 import UIKit
 
 class ProfileViewController: UIViewController,
-    UIImagePickerControllerDelegate,
-UINavigationControllerDelegate{
+    UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+
     @IBOutlet weak var camera: UIButton!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var welcomeMsg: UILabel!
-    
     @IBOutlet weak var uploadImage: UIButton!
     @IBOutlet weak var usernameDisplay: UILabel!
+
     struct User {
         var username: String = ""
         var imageUrl: String = ""
@@ -35,13 +35,10 @@ UINavigationControllerDelegate{
         
         // get username
         let username = UserDefaults.standard.string(forKey: "username") ?? ""
-        
         welcomeMsg.text = "Welcome " + username
-
         
         fetchProfile(input: "") {
             (result: String) in
-//            self.usernameDisplay.text = "Welcome back " + self.currentUser.username
             guard let url = URL(string: self.currentUser.imageUrl) else { return }
             let data = try? Data(contentsOf: url)
             
@@ -50,12 +47,8 @@ UINavigationControllerDelegate{
                 self.imageView.image = currentImage
             }
         }
-        
-        //let defaults = UserDefaults.standard
-        //welcomeText.text = defaults.object(forKey: "username") as? String
-        
-        // Do any additional setup after loading the view.
     }
+    
     @IBAction func clickCamera(_ sender: Any) {
         CameraHandler.shared.showActionSheet(vc: self)
         CameraHandler.shared.imagePickedBlock = { (galleryImage) in
@@ -64,7 +57,8 @@ UINavigationControllerDelegate{
             /* get your image here */
         }
     }
-    
+
+    // fetch user details
     func fetchProfile(input: String, completion: @escaping (_ result: String) -> Void) {
         let Url = String(format: "http://127.0.0.1:8081/getProfile")
         guard let serviceUrl = URL(string: Url) else { return}
@@ -91,7 +85,6 @@ UINavigationControllerDelegate{
                     guard let jsonArray = jsonResponse as? [[String: Any]] else {
                         return
                     }
-                    //print(jsonArray)
                     for dic in jsonArray{
                         self.currentUser = User(dic)
                     }
@@ -105,14 +98,14 @@ UINavigationControllerDelegate{
         
         task.resume()
     }
-    
+
+    // uploads profile image for the user
     func uploadImage(paramName: String, fileName: String, image: UIImage) {
         let token = UserDefaults.standard.string(forKey: "token") ?? ""
         let url = URL(string: "http://127.0.0.1:8081/createProfile")
         
         // generate boundary string using a unique per-app string
         let boundary = UUID().uuidString
-        
         let session = URLSession.shared
         
         // Set the URLRequest to POST and to the specified URL
@@ -146,5 +139,4 @@ UINavigationControllerDelegate{
             }
         }).resume()
     }
-    
 }

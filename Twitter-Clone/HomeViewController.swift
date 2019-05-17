@@ -9,11 +9,11 @@
 import UIKit
 
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
-
     
     @IBOutlet weak var logOut: UIImageView!
-    
     @IBOutlet weak var welcomeMsg: UILabel!
+    @IBOutlet weak var postList: UITableView!
+
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.posts.count
@@ -24,7 +24,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.textLabel?.text = self.posts[indexPath.row].username + ": " + self.posts[indexPath.row].text
         return cell
     }
-    
     
     struct Post {
         var username: String
@@ -40,29 +39,28 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     var posts = [Post]()
     
-    @IBOutlet weak var postList: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // get username
+        // get username from UserDefaults
         let username = UserDefaults.standard.string(forKey: "username") ?? ""
-        
         welcomeMsg.text = "Welcome " + username
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
-
+        
         self.logOut.isUserInteractionEnabled = true
         self.logOut.addGestureRecognizer(tapGestureRecognizer)
     }
     
+    // logout function
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
-        
         let Url = String(format: "http://127.0.0.1:8081/logout")
         guard let serviceUrl = URL(string: Url) else { return}
         var request = URLRequest(url: serviceUrl)
         request.httpMethod = "POST"
         request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
         let token = UserDefaults.standard.string(forKey: "token") ?? ""
+
         let parameterDictionary = ["authToken": token]
         guard let httpBody = try? JSONSerialization.data(withJSONObject: parameterDictionary, options: []) else {
             return
@@ -72,7 +70,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
         
         let task = session.dataTask(with: request) {
-            
             (data, response, error) in
             if let response = response {
                 print(response)
@@ -90,9 +87,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             }
         }
         task.resume()        
-//        self.performSegue(withIdentifier: "logout", sender: nil)
     }
-    
+
+    // to refresh posts
     override func viewDidAppear(_ animated: Bool) {
         populatePosts(input: "") {
             (result: String) in
@@ -103,6 +100,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
+    // displays post on home screen
     func populatePosts(input: String, completion: @escaping (_ result: String) -> Void) {
         let Url = String(format: "http://127.0.0.1:8081/getFollowedPosts")
         guard let serviceUrl = URL(string: Url) else { return}
@@ -142,7 +140,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 }
             }
         }
-        
         task.resume()
     }
 }

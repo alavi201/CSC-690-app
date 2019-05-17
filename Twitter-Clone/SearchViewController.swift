@@ -12,16 +12,14 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     @IBOutlet weak var welcomeMsg: UILabel!
     @IBOutlet weak var searchBar: UISearchBar!
-    var results = [[String:Any]]()
-
     @IBOutlet weak var tableView: UITableView!
+    var results = [[String:Any]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // get username
         let username = UserDefaults.standard.string(forKey: "username") ?? ""
-
         welcomeMsg.text = "Welcome " + username
 
         self.tableView.dataSource = self
@@ -36,14 +34,11 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // if search is empty
         if (search == "") {
             displayAlertMessage(messageToDisplay: "Please Enter User Name")
-            
-            // redirecting to the same page (not sure, if this is a correct approach)
             return self.viewDidLoad()
         }
         
         let Url = String(format: "http://127.0.0.1:8081/search")
         guard let serviceUrl = URL(string: Url) else { return }
-        
         let token = UserDefaults.standard.string(forKey: "token") ?? ""
         
         let parameterDictionary = ["authToken": token,"query" :search]
@@ -105,30 +100,21 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if (followers == 1 ) {
             // when follows another user
             username = "\(username)"
-//
-//            DispatchQueue.main.async(execute: {
-//                cell.cellImage.image = image
-//            })
             cell.cellImage.image = image
             cell.cellButton.setTitle("Unfollow",for: .normal)
             cell.cellButton.backgroundColor = UIColor.red
         } else {
             // when unfollows another user
             username = "\(username)"
-//
-//            DispatchQueue.main.async(execute: {
-//                cell.cellImage.image = image
-//            })
             cell.cellImage.image = image
             cell.cellButton.setTitle("Follow",for: .normal)
             cell.cellButton.backgroundColor = UIColor.blue
         }
-        
         cell.cellText.text! = username
         return cell
     }
 
-    // when either of the cell is clicked --> follow/unfollow calls
+    // when either of the cell button is clicked --> follow/unfollow
     @IBAction func buttonClicked(_ sender: Any) {
         let from = sender as AnyObject
         let type = from.titleLabel!.text!
@@ -143,8 +129,8 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
             let Url = String(format: "http://127.0.0.1:8081/unfollowUser")
             guard let serviceUrl = URL(string: Url) else { return }
-        
             let token = UserDefaults.standard.string(forKey: "token") ?? ""
+
             let parameterDictionary = ["authToken": token,"unfollowUserId" :userId]
         
             var request = URLRequest(url: serviceUrl)
@@ -164,9 +150,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 if let data = data {
                     do {
                         let json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments)
-                    
-                        print(json)
-                    
                         cell.cellButton.setTitle("Follow",for: .normal)
                         cell.cellButton.backgroundColor = UIColor.blue
                     } catch {
@@ -181,8 +164,8 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
             let Url = String(format: "http://127.0.0.1:8081/followUser")
             guard let serviceUrl = URL(string: Url) else { return }
-            
             let token = UserDefaults.standard.string(forKey: "token") ?? ""
+
             let parameterDictionary = ["authToken": token,"followUserId" :userId]
             
             var request = URLRequest(url: serviceUrl)
@@ -202,8 +185,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 if let data = data {
                     do {
                         let json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments)
-                        
-                        print(json)
                         cell.cellButton.setTitle("Unfollow",for: .normal)
                         cell.cellButton.backgroundColor = UIColor.red
                     } catch {
