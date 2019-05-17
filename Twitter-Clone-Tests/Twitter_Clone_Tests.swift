@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import Twitter_Clone
 
 class Twitter_Clone_Tests: XCTestCase {
 
@@ -39,6 +40,36 @@ class Twitter_Clone_Tests: XCTestCase {
                     promise.fulfill()
                 } else {
                     XCTFail("Status code: \(statusCode)")
+                }
+            }
+        }
+        dataTask.resume()
+        // 3
+        waitForExpectations(timeout: 5, handler: nil)
+    }
+    
+    func testAuthToken() {
+        // given
+        let url = URL(string: "http://127.0.0.1:8081/loginTest")
+        // 1
+        let promise = expectation(description: "authToken")
+        
+        // when
+        let dataTask = sessionUnderTest.dataTask(with: url!) { data, response, error in
+            // then
+            let json = try! JSONSerialization.jsonObject(with: data!, options: [])
+            
+            guard let jsonArray = json as? [String: Any] else {
+                return
+            }
+            if let error = error {
+                XCTFail("Error: \(error.localizedDescription)")
+                return
+            } else if let statusCode = (response as? HTTPURLResponse)?.statusCode {
+                if statusCode == 200 && jsonArray["authToken"] != nil {
+                    promise.fulfill()
+                } else {
+                    XCTFail("authToken")
                 }
             }
         }
