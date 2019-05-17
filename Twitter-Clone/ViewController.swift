@@ -60,6 +60,9 @@ class ViewController: UIViewController {
                             self.performSegue(withIdentifier: "signIn", sender: nil)
                         
                     }
+                    else {
+                        self.displayAlertMessage(messageToDisplay: "Invalid username or password")
+                    }
 
                     
                 } catch {
@@ -73,5 +76,18 @@ class ViewController: UIViewController {
     @IBAction func onSignUpClicked(_ sender: Any) {
         
         self.performSegue(withIdentifier: "signUpView", sender: nil)
+    }
+    
+    func displayAlertMessage(messageToDisplay: String) {
+        let alertController = UIAlertController(title: "Alert", message: messageToDisplay, preferredStyle: .alert)
+        
+        let oKAction = UIAlertAction(title: "OK", style: .default) {
+            (action: UIAlertAction!) in
+        }
+        
+        alertController.addAction(oKAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+        viewDidLoad()
     }
 }
