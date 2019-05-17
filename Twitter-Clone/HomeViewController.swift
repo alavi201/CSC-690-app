@@ -55,14 +55,40 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.logOut.addGestureRecognizer(tapGestureRecognizer)
     }
     
-    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
-    {
+    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
         
-        /// netw
+        let Url = String(format: "http://127.0.0.1:8081/logout")
+        guard let serviceUrl = URL(string: Url) else { return}
+        var request = URLRequest(url: serviceUrl)
+        request.httpMethod = "POST"
+        request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
+        let token = UserDefaults.standard.string(forKey: "token") ?? ""
+        let parameterDictionary = ["authToken": token]
+        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameterDictionary, options: []) else {
+            return
+        }
+        request.httpBody = httpBody
         
-           self.performSegue(withIdentifier: "logout", sender: nil)
+        let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
         
-        // Your action
+        let task = session.dataTask(with: request) {
+            
+            (data, response, error) in
+            if let response = response {
+                print(response)
+            }
+            if let data = data {
+                do {
+                    if ((token as? String) != nil) {
+                        self.performSegue(withIdentifier: "logout", sender: nil)
+                    }
+                } catch {
+                    print(error)
+                }
+            }
+        }
+        task.resume()        
+//        self.performSegue(withIdentifier: "logout", sender: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -117,5 +143,4 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         task.resume()
     }
-    
 }

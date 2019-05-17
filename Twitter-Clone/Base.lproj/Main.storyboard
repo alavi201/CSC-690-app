@@ -335,13 +335,6 @@
                                     <action selector="clickCamera:" destination="HUN-F7-PSh" eventType="touchUpInside" id="FhH-ST-waz"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V6M-dG-pPT">
-                                <rect key="frame" x="60" y="233" width="257" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Profile Screen" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XGl-8p-lFn">
                                 <rect key="frame" x="108" y="88" width="251" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -357,7 +350,6 @@
                     <connections>
                         <outlet property="camera" destination="ygx-d9-Rk9" id="JsK-D2-PP3"/>
                         <outlet property="imageView" destination="Nai-pd-NvV" id="1MK-hM-Mco"/>
-                        <outlet property="usernameDisplay" destination="V6M-dG-pPT" id="Gfc-rA-Q1M"/>
                         <outlet property="welcomeMsg" destination="XGl-8p-lFn" id="hSg-tZ-3qn"/>
                     </connections>
                 </viewController>

@@ -41,7 +41,7 @@ UINavigationControllerDelegate{
         
         fetchProfile(input: "") {
             (result: String) in
-            self.usernameDisplay.text = "Welcome back " + self.currentUser.username
+//            self.usernameDisplay.text = "Welcome back " + self.currentUser.username
             guard let url = URL(string: self.currentUser.imageUrl) else { return }
             let data = try? Data(contentsOf: url)
             
